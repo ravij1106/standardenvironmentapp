@@ -11,7 +11,7 @@ public class HelloController{
 
     @GetMapping("/hello")
     public String hello() {
-        StringBuilder message = new StringBuilder("Hello Google App Engine!");
+        StringBuilder message = new StringBuilder("Hello From standardenvironmentpp!");
         try {
             InetAddress ip = InetAddress.getLocalHost();
             message.append(" From host: " + ip);
@@ -23,7 +23,14 @@ public class HelloController{
     
     @GetMapping("/indexPage")
     public String getMessage() {
-    	return "Hello from from spring boot application";
+    	StringBuilder message = new StringBuilder("Hello from from spring boot application");
+    	try {
+            InetAddress ip = InetAddress.getLocalHost();
+            message.append(" From host: " + ip);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        return message.toString();
     }
 
 }
